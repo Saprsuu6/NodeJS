@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/chat-box.css">
+    <link rel="stylesheet" href="./styles/chat-elements.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="chat-button">
+            <button id="open-chat">Открыть чат</button>
+        </div>
+
+        <div class="chat-box" id="chat-box">
+            <button id="close-chat" class="close-button">Закрыть чат</button>
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message">Пиши сюда всё что считаешь нужным и не нужным;)</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Введите сообщение">
+                    <button id="send-button">Отправить</button>
+                </div>
+            </div>
+    </main>
+
+    <footer class="contact-footer">
+        <div class="contact-container">
+            <h2>Контакты</h2>
+            <p>Если у вас есть вопросы или комментарии, не стесняйтесь обращаться.</p>
+
+            <div class="contact-info">
+                <% if(contacts.length) { %>
+                    <% contacts.forEach(({name, link})=> { let href = ""%>
+                        <div class="contact-item">
+                            <p>
+                                <%= name %>
+                                    <% if(name=="Email" ) { href=link.slice(0, 0) + "mailto:" + link.slice(0) } %>
+                                        <a href="<%= href %>">
+                                            <%= link %>
+                                        </a>
+                            </p>
+                        </div>
+                        <% }) %>
+                            <% } %>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const openChatButton = document.getElementById("open-chat");
+        const closeChatButton = document.getElementById("close-chat");
+        const chatBox = document.getElementById("chat-box");
+
+        // Функция для открытия чата
+        function openChat() {
+            chatBox.style.right = "0";
+            openChatButton.setAttribute("hidden", "hidden")
+        }
+
+        // Функция для закрытия чата
+        function closeChat() {
+            chatBox.style.right = "-400px";
+            openChatButton.removeAttribute("hidden")
+        }
+
+        openChatButton.addEventListener("click", openChat);
+        closeChatButton.addEventListener("click", closeChat);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+.contact-footer {
+  border-radius: 20px;
+  background-color: #ac8a2d; /* Цвет фона футера */
+  color: #ffffff; /* Цвет текста */
+  padding: 20px 0; /* Внутренние отступы сверху и снизу */
+}
+
+.contact-container {
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрирование по горизонтали */
+  text-align: center; /* Выравнивание по центру */
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact-item {
+  margin: 0 20px;
+}
+
+.contact-item p {
+  margin-top: 5px; /* Верхний отступ для текста контактов */
+}

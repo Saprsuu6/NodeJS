@@ -1,0 +1,30 @@
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#chat-box {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Чат скрыт сбоку при загрузке страницы */
+  width: 400px;
+  height: 100%;
+  background-color: #ffd49c;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s; /* Анимация при открытии и закрытии чата */
+}
+
+.close-button {
+  width: 100%;
+  padding: 5px 0 5px 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #dab230;
+}
