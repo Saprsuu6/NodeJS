@@ -2,14 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/chat-box.css">
-    <link rel="stylesheet" href="./styles/chat-elements.css">
+    <%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./styles/chat-box.css">
+        <link rel="stylesheet" href="./styles/chat-elements.css">
+        <link rel="stylesheet" href="./styles/chat-container.css">
 </head>
 
 <body>
@@ -29,10 +26,46 @@
                     <div class="message">Пиши сюда всё что считаешь нужным и не нужным;)</div>
                 </div>
                 <div class="chat-input">
-                    <input type="text" id="message-input" placeholder="Введите сообщение">
-                    <button id="send-button">Отправить</button>
+                    <form id="post-form" method="post" action="/send-messge">
+                        <input style="margin-bottom: 5px;" type="text" name="name" id="message-input"
+                            placeholder="Введите ваш ник">
+                        <input type="text" name="message" id="message-input" placeholder="Введите сообщение">
+                        <button id="send-button">Отправить</button>
+                    </form>
                 </div>
             </div>
+
+            <div class="chat">
+                <% if (messages.length> 0) { %>
+                    <% messages.forEach(({date, message, name})=> { %>
+                        <% const options={ weekday: 'long' , year: 'numeric' , month: 'short' , day: 'numeric' }; %>
+                            <div class="element">
+                                <div class="message received">
+                                    <div class="message-header">
+                                        <div class="message-sender">От: <%= name %>
+                                        </div>
+                                        <div class="message-date">
+                                            <%= date.toLocaleDateString('ru-RU', options) %>
+                                        </div>
+                                    </div>
+                                    <div class="message-content">
+                                        <%= message %>
+                                    </div>
+                                </div>
+                                <!-- <div class="message sent" style="margin-top: 10px;">
+                                        <div class="message-header">
+                                            <div class="message-sender">Вы</div>
+                                            <div class="message-date">12 сентября 2023, 15:35</div>
+                                        </div>
+                                        <div class="message-content">
+                                            Привет! Дела отлично, спасибо!
+                                        </div>
+                                    </div> -->
+                            </div>
+                            <% }) %>
+                                <% } %>
+            </div>
+        </div>
     </main>
 
     <footer class="contact-footer">

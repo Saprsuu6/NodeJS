@@ -1,0 +1,50 @@
+.chat {
+  overflow-y: auto;
+}
+
+.element {
+  /* border: 1px gray solid; */
+  border-radius: 10px;
+  width: 90%; /* Задайте желаемую ширину контейнера чата */
+  margin: 5px auto;
+  padding: 5px;
+}
+
+/* Стили для сообщений */
+.message {
+  border-radius: 10px;
+  word-wrap: break-word;
+  background-color: #f2f2f2;
+}
+
+.received {
+  text-align: left;
+}
+
+.sent {
+  text-align: right;
+  background-color: #007bff;
+}
+
+/* Стили для заголовка сообщения (отправитель и дата) */
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ddd;
+  padding: 5px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.message-sender {
+  font-weight: bold;
+}
+
+.message-content {
+  padding: 5px 10px;
+}
+
+.message-date {
+  font-size: 12px;
+}
